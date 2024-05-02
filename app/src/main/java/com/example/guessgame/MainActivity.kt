@@ -2,6 +2,7 @@ package com.example.guessgame
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.guessgame.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -18,11 +20,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mPointsLbl: TextView
     private var mPoints: Int = 0
     private lateinit var mConstraintLayout: ConstraintLayout
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -35,16 +39,17 @@ class MainActivity : AppCompatActivity() {
         mConstraintLayout = findViewById(R.id.main)
         setRandomNumbersOnButtons()
 
-        mLeftBtn.setOnClickListener {
-            val lSelGreatVal = mLeftBtn.text.toString().toInt()
-            val lSelLessVal = mRightBtn.text.toString().toInt()
-            handleResult(lSelGreatVal, lSelLessVal)
-        }
-        mRightBtn.setOnClickListener {
+        binding.mRtButton.setOnClickListener {
             val lSelGreatVal = mRightBtn.text.toString().toInt()
             val lSelLessVal = mLeftBtn.text.toString().toInt()
             handleResult(lSelGreatVal, lSelLessVal)
         }
+    }
+    public fun callThisOnLeftClick(aView: View)
+    {
+        val lSelGreatVal = mLeftBtn.text.toString().toInt()
+        val lSelLessVal = mRightBtn.text.toString().toInt()
+        handleResult(lSelGreatVal, lSelLessVal)
     }
 
     private fun setRandomNumbersOnButtons() {

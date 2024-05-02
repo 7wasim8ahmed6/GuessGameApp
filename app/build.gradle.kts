@@ -7,6 +7,9 @@ android {
     namespace = "com.example.guessgame"
     compileSdk = 34
 
+    viewBinding {
+        enable = true
+    }
     defaultConfig {
         applicationId = "com.example.guessgame"
         minSdk = 24
