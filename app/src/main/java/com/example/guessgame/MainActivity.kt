@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             handleResult(lSelGreatVal, lSelLessVal)
         }
     }
-    public fun callThisOnLeftClick(aView: View)
+    fun callThisOnLeftClick(aView: View)
     {
         val lSelGreatVal = mLeftBtn.text.toString().toInt()
         val lSelLessVal = mRightBtn.text.toString().toInt()
