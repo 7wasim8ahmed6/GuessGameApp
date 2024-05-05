@@ -1,4 +1,4 @@
-# Tip Calculator
+# Guessing game
 
 ## Rauf Wasim Iqbal Ahmed
 
