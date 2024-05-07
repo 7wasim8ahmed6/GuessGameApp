@@ -29,7 +29,7 @@ The challenge here was to get introduced to different ways of getting access to 
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2024] [Rauf Wasim Iqbal Ahmed]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
